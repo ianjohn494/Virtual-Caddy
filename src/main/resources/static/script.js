@@ -24,7 +24,7 @@ async function addIron() {
     };
 
     try {
-        let response = await fetch('http://localhost:8080/irons', {
+        let response = await fetch('/irons', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -48,7 +48,7 @@ async function addIron() {
 
 async function loadIrons() {
     try {
-        let response = await fetch('http://localhost:8080/irons');
+        let response = await fetch('/irons');
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
@@ -81,7 +81,7 @@ async function loadIrons() {
             deleteButton.addEventListener("click", async () =>{
 
                 try{
-                let deleteResponse = await fetch(`http://localhost:8080/irons/${iron.id}`, {
+                let deleteResponse = await fetch(`/irons/${iron.id}`, {
                     method: "DELETE",
                     headers: {
                         'Content-Type': 'application/json'
@@ -124,7 +124,7 @@ async function addWood() {
     };
 
     try {
-        let response = await fetch('http://localhost:8080/woods', {
+        let response = await fetch('/woods', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"  // Set the content type to JSON
@@ -147,7 +147,7 @@ async function addWood() {
 
 async function loadWoods() {
     try {
-        let response = await fetch('http://localhost:8080/woods');
+        let response = await fetch('/woods');
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
@@ -179,7 +179,7 @@ async function loadWoods() {
             deleteButton.addEventListener("click", async () =>{
 
                 try{
-                let deleteResponse = await fetch(`http://localhost:8080/woods/${wood.id}`, {
+                let deleteResponse = await fetch(`/woods/${wood.id}`, {
                     method: "DELETE",
                     headers: {
                         'Content-Type': 'application/json'
@@ -227,7 +227,7 @@ async function addWedge() {
     };
 
     try {
-        let response = await fetch('http://localhost:8080/wedges', {
+        let response = await fetch('/wedges', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -250,7 +250,7 @@ async function addWedge() {
 
 async function loadWedges() {
     try {
-        let response = await fetch('http://localhost:8080/wedges');
+        let response = await fetch('/wedges');
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
@@ -282,7 +282,7 @@ async function loadWedges() {
             deleteButton.addEventListener("click", async () =>{
 
                 try{
-                let deleteResponse = await fetch(`http://localhost:8080/wedges/${wedge.id}`, {
+                let deleteResponse = await fetch(`/wedges/${wedge.id}`, {
                     method: "DELETE",
                     headers: {
                         'Content-Type': 'application/json'
@@ -317,7 +317,7 @@ async function calculateClub()  {
     }
 
     try {
-        let response = await fetch('http://localhost:8080/clubs/closest?distance=' + encodeURIComponent(distance), {
+        let response = await fetch('/clubs/closest?distance=' + encodeURIComponent(distance), {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -378,7 +378,7 @@ async function sendCoordinates(position) {
     console.log("latitude" + latitude);
     console.log("longitude" + longitude);
 
-    fetch('http://localhost:8080/location', {
+    fetch('/location', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
