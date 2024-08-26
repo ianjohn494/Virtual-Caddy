@@ -20,12 +20,12 @@ public class IronService {
         Iron closestIron = null;
 
         if (!ironsLessThanOrEqual.isEmpty()) {
-            closestIron = ironsLessThanOrEqual.getFirst();
+            closestIron = ironsLessThanOrEqual.get(0);
         }
 
         // Finds the closest iron to the distance
         if (!ironsGreaterThanOrEqual.isEmpty()) {
-            Iron closestGreaterIron = ironsGreaterThanOrEqual.getFirst();
+            Iron closestGreaterIron = ironsGreaterThanOrEqual.get(0);
             if (closestIron == null ||
                     Math.abs(closestGreaterIron.getFullDistance() - distance) < Math.abs(closestIron.getFullDistance() - distance)) {
                 closestIron = closestGreaterIron;

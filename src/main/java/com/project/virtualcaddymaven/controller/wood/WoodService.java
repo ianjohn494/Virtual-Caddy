@@ -20,11 +20,11 @@ public class WoodService {
         Wood closestWood = null;
 
         if (!woodsLessThanOrEqual.isEmpty()) {
-            closestWood = woodsLessThanOrEqual.getFirst();
+            closestWood = woodsLessThanOrEqual.get(0);
         }
 
         if (!woodsGreaterThanOrEqual.isEmpty()) {
-            Wood closestGreaterWood = woodsGreaterThanOrEqual.getFirst();
+            Wood closestGreaterWood = woodsGreaterThanOrEqual.get(0);
             if (closestWood == null ||
                     Math.abs(closestGreaterWood.getFullDistance() - distance) < Math.abs(closestWood.getFullDistance() - distance)) {
                 closestWood = closestGreaterWood;
