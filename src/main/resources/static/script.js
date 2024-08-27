@@ -375,28 +375,47 @@ async function sendCoordinates(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
 
-    console.log("latitude" + latitude);
-    console.log("longitude" + longitude);
+    const backLat = 39.85786;
+    const backLon = 83.04218;
 
-    fetch('/location', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            latitude: latitude,
-            longitude: longitude
+    const midLat = 39.85798;
+    const midLon = 83.04226;
 
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("success: ", data);
-    })
-    .catch((error) => {
-        console.error('error: ', error)
-    });
+    const frontLat = 39.85809;
+    const frontLon = 83.04246;
+
+    let yardsToBack = Math.round(getYards(backLat, latitude, backLon, Math.abs(longitude)));
+    let yardsToMid = Math.round(getYards(midLat, latitude, midLon, Math.abs(longitude)));
+    let yardsToFront = Math.round(getYards(frontLat, latitude, frontLon, Math.abs(longitude)));
+
+    document.getElementById("back").innerText = 'Back: ' + yardsToBack + ' yards';
+    document.getElementById("middle").innerText = 'Center: ' + yardsToMid + ' yards';
+    document.getElementById("front").innerText = 'Front: ' + yardsToFront + ' yards';
+
 }
+
+function getYards(lat1, lat2, lon1, lon2) {
+
+        lon1 =  lon1 * Math.PI / 180;
+        lon2 = lon2 * Math.PI / 180;
+        lat1 = lat1 * Math.PI / 180;
+        lat2 = lat2 * Math.PI / 180;
+
+        // Haversine formula
+        let dlon = lon2 - lon1;
+        let dlat = lat2 - lat1;
+        let a = Math.pow(Math.sin(dlat / 2), 2)
+                 + Math.cos(lat1) * Math.cos(lat2)
+                 * Math.pow(Math.sin(dlon / 2),2);
+
+        let c = 2 * Math.asin(Math.sqrt(a));
+
+
+        let r = 6975240.5949256;
+
+        return(c * r);
+}
+
 
 async function startTracking() {
     if (navigator.geolocation) {

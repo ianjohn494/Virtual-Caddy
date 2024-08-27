@@ -1,9 +1,8 @@
 package com.project.virtualcaddymaven.controller.location;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class LocationController {
@@ -27,6 +26,15 @@ public class LocationController {
 
 
         return "coordinate success";
+    }
+
+    @GetMapping("/location")
+    public ResponseEntity<Double> getYards(@RequestParam double lat,
+                                               @RequestParam double lon) {
+        double midLat = 39.85798;
+        double midLon = 83.04226;
+
+        return ResponseEntity.ok(locationService.getYards(midLat, lat, midLon, Math.abs(lon)));
     }
 
 }

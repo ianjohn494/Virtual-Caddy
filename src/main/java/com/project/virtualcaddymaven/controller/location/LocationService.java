@@ -2,8 +2,6 @@ package com.project.virtualcaddymaven.controller.location;
 
 public class LocationService {
 
-
-
     public double getYards(double lat1, double lat2, double lon1, double lon2) {
 
         lon1 = Math.toRadians(lon1);
