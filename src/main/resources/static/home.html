@@ -20,9 +20,21 @@
         <button onclick="location.href='create_golf_bag.html'">Create New Golf Bag</button>
     </div>
     <div class="output" id="result"></div>
-    <div class="output" id="back"></div>
-    <div class="output" id="middle"></div>
-    <div class="output" id="front"></div>
+    <label for="holeSelect">Hole:</label>
+    <select id="holeSelect" onchange="getUserPosition()">
+        <option value="1">Hole 1</option>
+        <option value="2">Hole 2</option>
+        <option value="3">Hole 3</option>
+        <option value="4">Hole 4</option>
+        <option value="5">Hole 5</option>
+        <option value="6">Hole 6</option>
+        <option value="7">Hole 7</option>
+        <option value="8">Hole 8</option>
+        <option value="9">Hole 9</option>
+
+    </select>
+    <div id="coordinates"></div>
+
 
 </div>
 <script src="script.js"></script>

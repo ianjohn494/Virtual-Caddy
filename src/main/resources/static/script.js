@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", loadIrons);
 document.addEventListener("DOMContentLoaded", loadWoods);
 document.addEventListener("DOMContentLoaded", loadWedges);
-window.onload = function() {
-    startTracking();
-};
 
 async function addIron() {
     let type = document.getElementById("type").value;
@@ -371,30 +368,7 @@ async function calculateClub()  {
     }
 }
 
-async function sendCoordinates(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-
-    const backLat = 39.85786;
-    const backLon = 83.04218;
-
-    const midLat = 39.85798;
-    const midLon = 83.04226;
-
-    const frontLat = 39.85809;
-    const frontLon = 83.04246;
-
-    let yardsToBack = Math.round(getYards(backLat, latitude, backLon, Math.abs(longitude)));
-    let yardsToMid = Math.round(getYards(midLat, latitude, midLon, Math.abs(longitude)));
-    let yardsToFront = Math.round(getYards(frontLat, latitude, frontLon, Math.abs(longitude)));
-
-    document.getElementById("back").innerText = 'Back: ' + yardsToBack + ' yards';
-    document.getElementById("middle").innerText = 'Center: ' + yardsToMid + ' yards';
-    document.getElementById("front").innerText = 'Front: ' + yardsToFront + ' yards';
-
-}
-
-function getYards(lat1, lat2, lon1, lon2) {
+function getYards(lat1, lon1, lat2, lon2) {
 
         lon1 =  lon1 * Math.PI / 180;
         lon2 = lon2 * Math.PI / 180;
@@ -416,36 +390,57 @@ function getYards(lat1, lat2, lon1, lon2) {
         return(c * r);
 }
 
+async function getUserPosition() {
 
-async function startTracking() {
+
+    const selectElement = document.getElementById('holeSelect');
+    const holeNumber = selectElement.value;
+
+    const response = await fetch('pinnacle.json');
+    const data = await response.json();
+    const holeData = data.holes[holeNumber-1];
+
+
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(sendCoordinates, handleError, {
-            enableHighAccuracy: true,
-            maximumAge: 0,
-            timeout: 5000
-        });
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
+       navigator.geolocation.getCurrentPosition(
+         (position) => {
+           const latitude = position.coords.latitude;
+           const longitude = position.coords.longitude;
+
+            if (holeData) {
+
+
+                updateDistanceFromHole(latitude, longitude, holeData);
+
+            } else {
+                document.getElementById('coordinates').innerHTML = 'No data found';
+            }
+
+         },
+         (error) => {
+           console.error("Error getting location:", error);
+         }
+       );
+     } else {
+       console.error("Geolocation is not supported by this browser.");
+     }
 }
 
-async function handleError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            console.error("user denied the request for geolocation");
-            break;
-        case error.POSITION_UNAVAILABLE:
-            console.error("Location information is unavailable.");
-            break;
-        case error.TIMEOUT:
-            console.error("The request to get user location timed out.");
-            break;
-        case error.UNKNOWN_ERROR:
-            console.error("An unknown error occurred.");
-            break;
-    }
+function updateDistanceFromHole(userLatitude, userLongitude, holeData) {
+    const frontDistance = getYards(userLatitude, userLongitude, holeData.front.latitude, holeData.front.longitude);
+    const middleDistance = getYards(userLatitude, userLongitude, holeData.middle.latitude, holeData.middle.longitude);
+    const backDistance = getYards(userLatitude, userLongitude, holeData.back.latitude, holeData.back.longitude);
 
+
+    const coordinatesDiv = document.getElementById('coordinates');
+            coordinatesDiv.innerHTML = `
+                <h3>Front: ${Math.round(frontDistance)} yards</h3>
+                <h3>Middle: ${Math.round(middleDistance)} yards</h3>
+                <h3>Back: ${Math.round(backDistance)} yards</h3>
+    `;
 }
+
+
 /*
 async function loadClubs() {
 

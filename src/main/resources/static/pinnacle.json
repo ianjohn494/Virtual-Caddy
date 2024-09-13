@@ -1,0 +1,112 @@
+{
+  "holes": [
+    {
+      "holeNumber": 1,
+      "front": { "latitude": 39.85809, "longitude": 83.04246 },
+      "middle": { "latitude": 39.85798, "longitude": 83.04226 },
+      "back": { "latitude": 39.85786, "longitude": 83.04218 }
+    },
+    {
+      "holeNumber": 2,
+      "front": { "latitude": 39.86012, "longitude": 83.04768 },
+      "middle": { "latitude": 39.86013, "longitude": 83.04783 },
+      "back": { "latitude": 39.86011, "longitude": 83.04801 }
+    },
+    {
+      "holeNumber": 3,
+      "front": { "latitude": 39.86295, "longitude": 83.05157 },
+      "middle": { "latitude": 39.86300, "longitude": 83.05175 },
+      "back": { "latitude": 39.86306, "longitude": 83.05193 }
+    },
+    {
+      "holeNumber": 4,
+      "front": { "latitude": 39.86715, "longitude": 83.04656 },
+      "middle": { "latitude": 39.86732, "longitude": 83.04649 },
+      "back": { "latitude": 39.86746, "longitude": 83.04645 }
+    },
+    {
+      "holeNumber": 5,
+      "front": { "latitude": 39.86605, "longitude": 83.04601 },
+      "middle": { "latitude": 39.86590, "longitude": 83.04613 },
+      "back": { "latitude": 39.86585, "longitude": 83.04626 }
+    },
+    {
+      "holeNumber": 6,
+      "front": { "latitude": 39.86360, "longitude": 83.04502 },
+      "middle": { "latitude": 39.86350, "longitude": 83.04497 },
+      "back": { "latitude": 39.86339, "longitude": 83.04490 }
+    },
+    {
+      "holeNumber": 7,
+      "front": { "latitude": 39.86462, "longitude": 83.04425 },
+      "middle": { "latitude": 39.86475, "longitude": 83.04422 },
+      "back": { "latitude": 39.86486, "longitude": 83.04419 }
+    },
+    {
+      "holeNumber": 8,
+      "front": { "latitude": 39.86859, "longitude": 83.04448 },
+      "middle": { "latitude": 39.86871, "longitude": 83.04452 },
+      "back": { "latitude": 39.86884, "longitude": 83.04453 }
+    },
+    {
+      "holeNumber": 9,
+      "front": { "latitude": 39.86468, "longitude": 83.04333 },
+      "middle": { "latitude": 39.86452, "longitude": 83.04328 },
+      "back": { "latitude": 39.86439, "longitude": 83.04328 }
+    },
+    {
+      "holeNumber": 10,
+      "front": { "latitude": 37.7749, "longitude": -122.4194 },
+      "middle": { "latitude": 37.7750, "longitude": -122.4195 },
+      "back": { "latitude": 37.7751, "longitude": -122.4196 }
+    },
+    {
+      "holeNumber": 11,
+      "front": { "latitude": 37.7749, "longitude": -122.4194 },
+      "middle": { "latitude": 37.7750, "longitude": -122.4195 },
+      "back": { "latitude": 37.7751, "longitude": -122.4196 }
+    },
+    {
+      "holeNumber": 12,
+      "front": { "latitude": 37.7749, "longitude": -122.4194 },
+      "middle": { "latitude": 37.7750, "longitude": -122.4195 },
+      "back": { "latitude": 37.7751, "longitude": -122.4196 }
+    },
+    {
+      "holeNumber": 13,
+      "front": { "latitude": 37.7749, "longitude": -122.4194 },
+      "middle": { "latitude": 37.7750, "longitude": -122.4195 },
+      "back": { "latitude": 37.7751, "longitude": -122.4196 }
+    },
+    {
+      "holeNumber": 14,
+      "front": { "latitude": 37.7749, "longitude": -122.4194 },
+      "middle": { "latitude": 37.7750, "longitude": -122.4195 },
+      "back": { "latitude": 37.7751, "longitude": -122.4196 }
+    },
+    {
+      "holeNumber": 15,
+      "front": { "latitude": 37.7749, "longitude": -122.4194 },
+      "middle": { "latitude": 37.7750, "longitude": -122.4195 },
+      "back": { "latitude": 37.7751, "longitude": -122.4196 }
+    },
+    {
+      "holeNumber": 16,
+      "front": { "latitude": 37.7749, "longitude": -122.4194 },
+      "middle": { "latitude": 37.7750, "longitude": -122.4195 },
+      "back": { "latitude": 37.7751, "longitude": -122.4196 }
+    },
+    {
+      "holeNumber": 17,
+      "front": { "latitude": 37.7749, "longitude": -122.4194 },
+      "middle": { "latitude": 37.7750, "longitude": -122.4195 },
+      "back": { "latitude": 37.7751, "longitude": -122.4196 }
+    },
+    {
+      "holeNumber": 18,
+      "front": { "latitude": 37.7749, "longitude": -122.4194 },
+      "middle": { "latitude": 37.7750, "longitude": -122.4195 },
+      "back": { "latitude": 37.7751, "longitude": -122.4196 }
+    }
+  ]
+}
